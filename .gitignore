@@ -1,20 +1,26 @@
-# Ignore virtual environment
+# Virtual environment
 .venv/
-
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
 
 # Django database
 db.sqlite3
 
-# Logs
-*.log
+# Python cache
+__pycache__/
 
-# Environment variables
-.env
+# Tailwind build output
+output.css
+tailwind.exe
 
-# VSCode settings (optional)
+# Node dependencies
+node_modules/
+
+# IDE / Editor
 .vscode/
+.idea/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Env files
+.env
