@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Hello World
+{% endblock %}
+
+
+
+
+
+
+  {% block content %}
+
+
+    <a class = "" href="{% url "blog_create" %}">
+
+        <button class="btn btn-soft btn-info mb-5 mt-5 ms-5">Create <i class="fa-solid fa-plus"></i>
+        </button>
+    </a>
+
+  <div class="container mt-5">
+  <div class="row">
+    {% for blog in blogs %}
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm rounded d-flex flex-column">
+
+        <!-- Image -->
+        {% if blog.image %}
+          <img src="{{ blog.image.url }}" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Blog Image">
+        {% else %}
+          <img src="/static/images/default.jpg" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Default Image">
+        {% endif %}
+
+        <!-- Card Body -->
+        <div class="card-body flex-grow-1">
+          <h5 class="card-title">{{ blog.user.username }}</h5>
+          <p class="card-text text-truncate" style="max-height: 60px; overflow: hidden;">
+            {{ blog.text }}
+          </p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+        
+        {% if blog.user == user %}
+          <!-- Card Footer -->
+          <div class="card-footer bg-grey border-0 d-flex justify-content-end">
+            <a href="{% url 'blog_edit' blog.id %}" class="btn btn-sm btn-primary me-2">
+              Edit <i class="fa-solid fa-pen"></i>
+            </a>
+            <a href="{% url 'blog_delete' blog.id %}" class="btn btn-sm btn-danger">
+              Delete <i class="fa-solid fa-trash"></i>
+            </a>
+          </div>
+
+        {% endif %}
+
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

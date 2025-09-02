@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+{% block title %}Login Page
+{% endblock %}
+
+
+{% block content %}
+<div class="text-center mt-5">
+    <h2 class = "mt-5 mb-3">Login</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class = "btn btn-success" type="submit">Login</button>
+    </form>
+
+    <p>don't have a account? Register here <a href="{% url 'register' %}"><button class="btn btn-primary">Register</button></a></p>
+
+</div>
+
+
+
+
+
+{% endblock %}

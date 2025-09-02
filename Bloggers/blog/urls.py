@@ -1,9 +1,20 @@
 from django.contrib import admin
 from django.urls import path
-from . import views
+from . import views 
 
 
 urlpatterns = [
-    path("test/",views.index ,name='test')
+    path("",views.blog_list ,name='blog_list'),
+    path("create/",views.blog_create ,name='blog_create'),
+    path("<int:blog_id>edit/",views.blog_edit ,name='blog_edit'),
+    path("<int:blog_id>delete/",views.blog_delete ,name='blog_delete'),
+    path('register/', views.register, name='register'),
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
+
+    
+
+    
+
 
 ]

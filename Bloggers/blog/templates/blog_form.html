@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Hello World
+{% endblock %}
+
+
+{% block content %}
+
+<h2> {% if  form.instance.pk %}Edit Blog
+    {% else %} Create Blog
+    {% endif %}
+
+    <form method = "post" enctype = "multipart/form-data" class = "form">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <button class = btn btn-warning type = "submit">Submit</button>
+    </form>
+    
+
+</h2>
+
+
+
+
+
+
+{% endblock %}

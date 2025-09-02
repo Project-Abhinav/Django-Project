@@ -1,0 +1,13 @@
+
+/* --- custom.css (add at bottom) --- */
+
+/* Force the page background — this removes the bluish DaisyUI bg */
+html, body {
+  background-color: #212529 !important;
+  color: #f8f9fa;
+}
+
+
+
+
+
