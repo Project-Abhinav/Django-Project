@@ -1,26 +1,42 @@
-# Virtual environment
-.venv/
-
-# Django database
-db.sqlite3
-
 # Python cache
 __pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+*.egg
 
-# Tailwind build output
-output.css
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+
+# Django stuff
+db.sqlite3
+/media/
+*.log
+
+# Ignore all migrations
+**/migrations/
+!**/migrations/__init__.py
+
+# VSCode settings
+.vscode/
+*.code-workspace
+
+# Tailwind & Node stuff
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Tailwind build files
+/static/css/output.css
 tailwind.exe
 
-# Node dependencies
-node_modules/
-
-# IDE / Editor
-.vscode/
-.idea/
-
-# OS junk
+# OS files
 .DS_Store
 Thumbs.db
 
-# Env files
-.env

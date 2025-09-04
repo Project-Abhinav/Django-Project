@@ -10,11 +10,20 @@ Logout Page
 
 <div class="text-center mt-5">
     <h2 class = "mt-5 mb-3">You have been Logged Out!!</h2>
+
+    <div style="margin-top: 7rem;">
  
 
-    <p>Login here <a href="{% url 'login' %}"><button class="btn btn-success">Login</button></a></p>
+        <p>Login here <a href="{% url 'login' %}"><button class="btn btn-success">Login</button></a>
+
+        <p>OR</p> 
+
+        <p>Don't Have a Account <a href="{% url 'register' %}"><button class="btn btn-primary">Register</button></a></p>
+
+    </div>
 
 </div>
+
 
 
 

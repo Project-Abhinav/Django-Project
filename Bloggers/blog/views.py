@@ -62,7 +62,8 @@ def register(request):
             data.save()
             # Add a success message
             messages.success(request, 'Registration successful! Please log in.')
-            return redirect('login') 
+            login(request,data) 
+            return redirect(blog_list)
     else:
         form = User_registration()
 
@@ -79,7 +80,6 @@ def login_view(request):
 
             if user is not None:
                 login(request, user)
-                messages.success(request, f"Welcome back, {username}!")
                 return redirect(blog_list)  
             else:
                 messages.error(request, "Invalid username or password.")
@@ -92,6 +92,6 @@ def login_view(request):
 def logout_view(request):
     logout(request)
 
+    return render(request, 'Registration/logout.html' )
     
-    return render(request, 'Registration/logout.html')
 

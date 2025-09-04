@@ -39,7 +39,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "blog",
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -130,7 +136,7 @@ MEDIA_URL ='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 
-LOGIN_URL = '/accounts/login'
+LOGIN_URL = '/blog/login/'
 
 LOGIN_REDIRECT_URL = '/blog/'
-LOGOUT_REDIRECT_URL = '/blog/'
+LOGOUT_REDIRECT_URL = '/logout/'
