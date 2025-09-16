@@ -1,10 +1,12 @@
+from pydoc import text
+from turtle import title
 from django.shortcuts import redirect, render,get_object_or_404,redirect
 from .models import Blog
 from .forms import Blog_Form,User_registration,LoginForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login,authenticate,logout
 from django.contrib import messages
-
+from django.db.models import Q
 # Create your views here.
 
 
@@ -13,8 +15,14 @@ def index(request):
 
 
 def blog_list(request):
-    blogs = Blog.objects.all().order_by('created_at')
-    return render(request,'blog_list.html',{'blogs':blogs})
+
+    query = request.GET.get('q')
+    if query :
+        blogs = Blog.objects.filter(Q(title__icontains=query)|Q(text__icontains=query)|Q(user__username__icontains=query)
+        ).distinct()
+    else:
+        blogs = Blog.objects.all().order_by('created_at')
+    return render(request,'blog_list.html',{'blogs':blogs,'query':query})
 
 @login_required
 def blog_create(request):
@@ -93,5 +101,12 @@ def logout_view(request):
     logout(request)
 
     return render(request, 'Registration/logout.html' )
+
+def read_blog(request,blog_id):
+    blog = get_object_or_404(Blog, pk=blog_id)
+
+    return render(request,'read_blog.html',{'blog':blog})
+
+
     
 

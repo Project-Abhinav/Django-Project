@@ -5,11 +5,6 @@
 Hello World
 {% endblock %}
 
-
-
-
-
-
   {% block content %}
 
 
@@ -34,11 +29,17 @@ Hello World
 
         <!-- Card Body -->
         <div class="card-body flex-grow-1">
-          <h5 class="card-title">{{ blog.user.username }}</h5>
+          <h5 class="card-title">{{ blog.title }}</h5>
           <p class="card-text text-truncate" style="max-height: 60px; overflow: hidden;">
-            {{ blog.text }}
+            <div class = "d-flex ">
+            {{ blog.text|slice:":10"  }}... <a class = "ms-5" href="{% url 'read_blog' blog.id %}"><BUTTON class="btn btn-info">Read More</BUTTON></a>
+            </div>
           </p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <p class="card-text"><small class="text-muted">Posted at {{blog.created_at }}</small></p>
+        </div>
+
+        <div class = "align-self-end mx-2" >
+          <p>Author - {{blog.user.username}}</p>
         </div>
         
         {% if blog.user == user %}

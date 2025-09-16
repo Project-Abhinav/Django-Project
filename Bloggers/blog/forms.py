@@ -8,7 +8,7 @@ class Blog_Form(forms.ModelForm):
     
     class Meta:
         model = Blog
-        fields = ("text","image")
+        fields = ("title","text","image")
 
 
 class User_registration(UserCreationForm):

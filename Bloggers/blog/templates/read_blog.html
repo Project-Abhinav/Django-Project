@@ -1,0 +1,37 @@
+
+{% extends "layout.html" %}
+
+
+{% block title %}
+Hello World
+{% endblock %}
+
+
+{% block content %}
+    
+
+    <div class = "d-flex justify-content-center mt-5">
+        <div class="card border border-info-subtle w-75">
+            <div class="card-header text-center text-primary-emphasis border-bottom border-black p-2 mb-2">
+             <h1>{{blog.title}}</h1>
+            </div>
+            <div class="card-body text-center">
+                <figure>
+                    <blockquote class="blockquote">
+                    <p>{{blog.text}}</p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">
+                        Author : {{blog.user.username}}
+                    </figcaption>
+                </figure>
+          </div>
+        </div>
+        
+    </div>
+
+
+
+
+
+
+{% endblock %}
